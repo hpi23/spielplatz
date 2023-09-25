@@ -1,0 +1,14 @@
+// This script approximates some digits of E.
+// The final output is an integer which approximates to E * 1000000000000000
+fn main() {
+  let mut e = 1f;
+  let mut f = 1f;
+
+  for i = 2; i < 100_000; i += 1 {
+    e += 1f / f;
+    f *= i as float;
+  }
+
+  let result = (e * 1000000000000000f) as int;
+  exit(result);
+}

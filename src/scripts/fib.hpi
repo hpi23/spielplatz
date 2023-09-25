@@ -1,0 +1,26 @@
+beantrage drucke von Drucker;
+
+funk Bewerbung() ergibt Zeichenkette {
+  "Bitte nehmt mich!"
+}
+
+funk Einschreibung(Zahl Matrikelnummer) ergibt Nichts {
+  // yeah! es hat geklappt!
+  setze Zahl _ auf Matrikelnummer;
+}
+
+funk Studium() ergibt Nichts {
+  // oof! jetzt geht es los!
+  // fib(10) = 55
+  // Berechnet eine Zahl der Fibonaccireihe.
+  drucke("Das Ergebnis von" / "Fibonacci(10) ist" /  Fibonacci(10));
+}
+
+
+funk Fibonacci(Zahl Die_Zahl) ergibt Zahl {
+    falls Die_Zahl < 2 {
+        Die_Zahl
+    } sonst {
+        Fibonacci(Die_Zahl - 2) + Fibonacci(Die_Zahl - 1)
+    }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "HPI-playground",
+  "private": true,
+  "version": "0.1.0",
+  "author": "MikMuellerDev",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build-wasm": "cd hpi-backend && wasm-pack build --target web",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "prepare": "smui-theme compile public/assets/theme.css -i src/theme"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.0.0",
+    "@tsconfig/svelte": "^3.0.0",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.56.2",
+    "svelte": "^3.54.0",
+    "svelte-check": "^2.10.0",
+    "svelte-preprocess": "^5.0.0",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0",
+    "wasm-pack": "^0.10.3"
+  },
+  "dependencies": {
+    "@codemirror/autocomplete": "^6.4.0",
+    "@codemirror/commands": "^6.1.2",
+    "@codemirror/lint": "^6.1.0",
+    "@codemirror/state": "^6.1.4",
+    "@codemirror/theme-one-dark": "^6.1.0",
+    "@fontsource/jetbrains-mono": "^4.5.11",
+    "@smui/button": "^7.0.0-beta.0",
+    "@smui/checkbox": "^7.0.0-beta.0",
+    "@smui/dialog": "^7.0.0-beta.0",
+    "@smui/icon-button": "^7.0.0-beta.0",
+    "@smui/select": "^7.0.0-beta.0",
+    "codemirror": "^6.0.1",
+    "codemirror-lang-hpi": "^0.1.0",
+    "material-icons": "^1.13.1",
+    "smui-theme": "^7.0.0-beta.0",
+    "svelte-material-ui": "^7.0.0-beta.0"
+  }
+}

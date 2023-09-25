@@ -1,0 +1,16 @@
+// This script approximates some digits of Pi.
+// The final output is an integer which approximates to PI * 1000000
+let ITERATIONS = 4000000;
+
+fn main() {
+    let mut k = 3f;
+    let mut s = 1f;
+
+    for i = 0; i < ITERATIONS; i+= 1 {
+        s = s-((1f / k) * ((-1) ** i) as float);
+        k += 2f;
+    }
+
+    let result = ((4f * s) * 1000000f);
+    exit(result as int);
+}
