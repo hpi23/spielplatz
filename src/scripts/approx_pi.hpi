@@ -1,16 +1,27 @@
-// This script approximates some digits of Pi.
-// The final output is an integer which approximates to PI * 1000000
-let ITERATIONS = 4000000;
+// Dieses Programm berechnet einige Nachkommastellen der Zahl PI.
+// Je höher die Anzahl der Iterationen, desto höher ist die Genauigkeit, aber auch der Zeitaufwandt.
+setze Zahl ITERATIONEN auf 4000000;
 
-fn main() {
-    let mut k = 3f;
-    let mut s = 1f;
+funk Bewerbung() ergibt Zeichenkette {
+  "Das ist meine wunderbare Bewerbung."
+}
 
-    for i = 0; i < ITERATIONS; i+= 1 {
-        s = s-((1f / k) * ((-1) ** i) as float);
-        k += 2f;
-    }
+funk Einschreibung(Zahl Matrikelnummer) ergibt Nichts {
+  setze Zahl _ auf Matrikelnummer;
+}
 
-    let result = ((4f * s) * 1000000f);
-    exit(result as int);
+funk Studium() ergibt Nichts {
+  setze Fließkommazahl k auf 3F;
+  setze Fließkommazahl s auf 1F;
+
+  setze Zahl Zähler auf 0;
+  solange Zähler < ITERATIONEN {
+    ändere s auf s-((1F : k) * ((-1) ** Zähler) als Fließkommazahl);
+    k += 2F;
+
+    Zähler += 1;
+  }
+
+  setze Fließkommazahl Resultat auf (4F * s);
+  drucke("So Pi mal daumen gesagt: Pi ist" / Resultat);
 }

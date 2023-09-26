@@ -1,24 +1,38 @@
-fn main() {
-    exit(pow(2, 4)); // 2 ** 4 = 16
+beantrage drucke von Drucker;
+
+funk Bewerbung() ergibt Zeichenkette {
+  "Bitte nehmt mich!"
 }
 
-fn pow(mut base: int, mut exp: int) -> int {
-    if exp == 0 {
-        return 1;
+funk Einschreibung(Zahl Matrikelnummer) ergibt Nichts {
+  // yeah! es hat geklappt!
+  setze Zahl _ auf Matrikelnummer;
+}
+
+funk Studium() ergibt Nichts {
+  // oof! jetzt geht es los!
+  // fib(10) = 55
+  // Berechnet eine Zahl der Fibonaccireihe.
+  drucke("Das Ergebnis von 2^4 ist" /  Hochrechnung(2 / 4));
+}
+
+funk Hochrechnung(Zahl Basis / Zahl Exponent) ergibt Zahl {
+    falls Exponent == 0 {
+        überweise 1;
     }
-    if exp < 0 {
-        return 0;
+    falls Exponent < 0 {
+        überweise 0;
     }
 
-    let mut acc = 1;
+    setze Zahl Akkumulator auf 1;
 
-    while exp > 1 {
-        if (exp & 1) == 1 {
-            acc *= base
+    solange Exponent > 1 {
+        falls (Exponent & 1) == 1 {
+            Akkumulator *= Basis
         }
-        exp /= 2;
-        base *= base;
+        Exponent := 2;
+        Basis *= Basis;
     }
 
-    acc * base
+    Akkumulator * Basis
 }
