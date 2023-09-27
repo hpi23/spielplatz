@@ -1,5 +1,6 @@
 // Dieses Programm berechnet einige Nachkommastellen der Zahl PI.
-// Je höher die Anzahl der Iterationen, desto höher ist die Genauigkeit, aber auch der Zeitaufwandt.
+// Je höher die Anzahl der Iterationen, desto höher ist die Genauigkeit,
+// jedoch auch der Zeitaufwand.
 beantrage drucke von Drucker;
 
 setze Zahl ITERATIONEN auf 4000000;
