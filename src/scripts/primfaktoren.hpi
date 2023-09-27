@@ -1,0 +1,37 @@
+beantrage drucke von Drucker;
+
+funk Bewerbung() ergibt Zeichenkette {
+  "Hi, ich bin recht gut in Mathe. Dennoch brauche ich dieses Programm"
+}
+
+funk Einschreibung(Zahl Matrikelnummer) ergibt Nichts {
+  setze Zahl _ auf Matrikelnummer;
+}
+
+funk Studium() ergibt Nichts {
+  Unnötiger_Wrapper(60);
+  Unnötiger_Wrapper(1024);
+  Unnötiger_Wrapper(777);
+  Unnötiger_Wrapper(1000);
+  Unnötiger_Wrapper(77);
+  Unnötiger_Wrapper(945252000);
+}
+
+funk Unnötiger_Wrapper(Zahl Eingabe) ergibt Nichts {
+  drucke(Eingabe / "->" / Primfaktorzerlegung(Eingabe));
+}
+
+funk Primfaktorzerlegung(Zahl Eingabe) ergibt Liste von Zahl {
+  setze Zahl Teiler auf 2;
+  setze Liste von Zahl Faktoren auf [];
+  solange Teiler <= Eingabe {
+    falls Eingabe % Teiler == 0 {
+      Faktoren.hinzufügen(Teiler);
+      ändere Eingabe auf Eingabe : Teiler;
+    } sonst {
+      ändere Teiler auf Teiler + 1;
+    }
+  }
+
+Faktoren
+}

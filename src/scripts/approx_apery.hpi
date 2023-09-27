@@ -1,12 +1,23 @@
-// This script approximates some digits of Apéry's theorem.
-// The final output is an integer which approximates to Apéry * 10000000
-fn main() {
-    let mut res = 1f;
+// Dieses Programm berechnet einige Nachkommastellen der Apéry's Konstante.
+beantrage drucke von Drucker;
 
-    for i = 2; i < 30000; i += 1 {
-        res += (1f / (i ** 3) as float);
-    }
+funk Bewerbung() ergibt Zeichenkette {
+  "Dies ist meine Bewerbung ans HPI."
+}
 
-    let FAC = 10000000f;
-    exit((res * FAC) as int);
+funk Einschreibung(Zahl Matrikelnummer) ergibt Nichts {
+  setze Zahl _ auf Matrikelnummer;
+}
+
+funk Studium() ergibt Nichts {
+  setze Fließkommazahl Ergebnis auf 1F;
+
+  setze Zahl Zähler auf 2;
+
+  solange Zähler < 30_000 {
+    Zähler += 1;
+    Ergebnis += (1F : (Zähler ** 3) als Fließkommazahl);
+  }
+
+  drucke(Ergebnis);
 }

@@ -1,0 +1,104 @@
+@use '@material/theme/color-palette' as colors;
+@use '@material/linear-progress';
+
+// Text field label selection
+.mdc-text-field { user-select: none; }
+// Text field floating label color
+.mdc-text-field--focused:not(.mdc-text-field--disabled, .mdc-text-field--invalid) .mdc-floating-label {
+    color: var(--mdc-theme-primary) !important;
+}
+
+// Select component label color
+.mdc-select:not(.mdc-select--disabled).mdc-select--focused .mdc-floating-label {
+    color: var(--mdc-theme-primary) !important;
+}
+
+// Linear progress background color
+.mdc-linear-progress {
+    @include linear-progress.buffer-color(transparent);
+}
+
+// Snackbar action text color
+.mdc-snackbar__action:not(:disabled) {
+    color: var(--mdc-theme-primary) !important;
+}
+
+// Checkbox color theme should be primary with on-primary tick color
+.mdc-checkbox {
+    --mdc-theme-secondary: var(--clr-primary);
+    &__checkmark {
+        color: var(--clr-on-primary) !important;
+    }
+}
+
+// Segmented button selected background
+.mdc-segmented-button__segment--selected::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: .08;
+    background-color: var(--mdc-theme-primary);
+}
+
+// Slider value preview
+.mdc-slider .mdc-slider__value-indicator {
+    color: var(--clr-text) !important;
+}
+
+// Make the FAB's ripple use the correct primary color ripple contrast
+.mdc-fab {
+    --mdc-ripple-color: var(--mdc-theme-on-primary);
+}
+
+// Segmented button ripple color
+.mdc-segmented-button__ripple {
+    --mdc-ripple-color: var(--mdc-theme-primary);
+}
+
+// Allow autocomplete inputs to grow in size
+.smui-autocomplete > div > .mdc-text-field {
+    width: 100%;
+}
+
+:root {
+    // Ripple color
+    .mdc-icon-button { --mdc-ripple-color: var(--clr-text); }
+
+    // Segmented button colors
+    --mdc-segmented-button-selected-ink-color: var(--mdc-theme-primary);
+    --mdc-segmented-button-selected-container-fill-color: transparent;
+    --mdc-segmented-button-unselected-container-fill-color: transparent;
+
+    // Switch deselected color for hover/focus/active
+    --mdc-switch-unselected-handle-color: #{colors.$grey-700};
+    --mdc-switch-unselected-hover-handle-color: var(--mdc-switch-unselected-handle-color);
+    --mdc-switch-unselected-focus-handle-color: var(--mdc-switch-unselected-handle-color);
+    --mdc-switch-unselected-pressed-handle-color: var(--mdc-switch-unselected-handle-color);
+    // Switch selected color for hover/focus/active
+    --mdc-switch-selected-handle-color: var(--mdc-theme-primary);
+    --mdc-switch-selected-hover-handle-color: var(--mdc-switch-selected-handle-color);
+    --mdc-switch-selected-focus-handle-color: var(--mdc-switch-selected-handle-color);
+    --mdc-switch-selected-pressed-handle-color: var(--mdc-switch-selected-handle-color);
+    // Switch deselected track color
+    --mdc-switch-unselected-track-color: #{colors.$grey-400};
+    --mdc-switch-unselected-hover-track-color: var(--mdc-switch-unselected-track-color);
+    --mdc-switch-unselected-focus-track-color: var(--mdc-switch-unselected-track-color);
+    --mdc-switch-unselected-pressed-track-color: var(--mdc-switch-unselected-track-color);
+    // Switch selected track color
+    --mdc-switch-selected-track-color: var(--mdc-theme-primary);
+    --mdc-switch-selected-hover-track-color: var(--mdc-switch-selected-track-color);
+    --mdc-switch-selected-focus-track-color: var(--mdc-switch-selected-track-color);
+    --mdc-switch-selected-pressed-track-color: var(--mdc-switch-selected-track-color);
+    .mdc-switch .mdc-switch__track {
+        background-color: var(--mdc-switch-unselected-track-color);
+    }
+    .mdc-switch:enabled .mdc-switch__track::after,
+    .mdc-switch:enabled:active .mdc-switch__track::after,
+    .mdc-switch:enabled:focus:not(:active) .mdc-switch__track::after,
+    .mdc-switch:enabled:hover:not(:focus):not(:active) .mdc-switch__track::after {
+        opacity: .25;
+    }
+
+    // Disabled text/icons
+    --mdc-theme-text-disabled-on-light: var(--clr-text-disabled);
+}

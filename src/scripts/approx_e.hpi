@@ -1,5 +1,6 @@
 // This script approximates some digits of E.
 // The final output is an integer which approximates to E * 1000000000000000
+beantrage drucke von Drucker;
 
 funk Bewerbung() ergibt Zeichenkette {
   "Meine Bewerbung"

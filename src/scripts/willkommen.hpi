@@ -1,5 +1,6 @@
 beantrage geld von Hasso;
 beantrage drucke von Drucker;
+beantrage aufgeben von libSAP;
 
 setze Zahl Meine_Zahl auf 42;
 setze Zeichenkette Meine_Zeichenkette auf "Das ist ein String";
@@ -9,8 +10,9 @@ setze Liste von Zeichen Meine_Liste auf [ 'c' / 'd' ];
 setze Wahrheitswert Mein_Wahrheitswert auf ja;
 
 funk Bewerbung() ergibt Zeichenkette {
-    setze Zeichenkette Bewerbung auf "Hallo, ich bin der ... Ich möchte am HPI studieren!";
+    setze Zeichenkette Bewerbung auf "Hallo, ich bin ... Ich möchte am HPI studieren!";
     drucke(Bewerbung);
+    drucke(geld());
     überweise Bewerbung;
 }
 
@@ -46,6 +48,7 @@ funk Studium() ergibt Nichts {
     drucke(Meine_Zahl / Meine_Zeichenkette / Mein_Zeichen / Meine_Fließkommazahl / Meine_Liste / Mein_Wahrheitswert);
 
     irgendwas('c' / 2);
+    aufgeben(42);
 }
 
 funk irgendwas(Zeichen n / Zahl x) ergibt Zahl {

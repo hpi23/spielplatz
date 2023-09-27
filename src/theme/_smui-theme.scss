@@ -10,6 +10,8 @@ $text-color: #fff;
     $error: #cf6679
 );
 
+@use './fixes';
+
 html,
 body {
     background-color: theme.$background;

@@ -3,6 +3,7 @@
     import Button, { Label } from '@smui/button'
     import Dialog, { Title, Content, Actions } from '@smui/dialog'
     import Select, { Option } from '@smui/select'
+  import LinearProgress from '@smui/linear-progress';
     import { onMount } from 'svelte'
 
     import Editor from './Editor.svelte'
@@ -13,6 +14,7 @@
     import fibHPI from './scripts/fib.hpi?raw'
     import powHPI from './scripts/pow.hpi?raw'
     import approxPi from './scripts/approx_pi.hpi?raw'
+    import primFaktoren from './scripts/primfaktoren.hpi?raw'
     import approxE from './scripts/approx_e.hpi?raw'
     import approxApery from './scripts/approx_apery.hpi?raw'
 
@@ -21,6 +23,7 @@
         Fibonacci: [fibHPI, 'Fibonacci'],
         Pow: [powHPI, 'Exponentialrechnung'],
         ApproxPi: [approxPi, 'Pi mal Daumen'],
+        primFaktoren: [primFaktoren, 'Primfaktorzerlegung'],
         ApproxE: [approxE, 'Die Eulersche Zahl'],
         ApproxApery: [approxApery, 'Apéry Konstante'],
     }
@@ -231,6 +234,8 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
 
         resizer.addEventListener('mousedown', mouseDownHandler)
     })
+
+    $:console.log(running);
 </script>
 
 <main>
@@ -332,9 +337,14 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
             <img src="/assets/logo.svg" alt="Das Logo des HPI">
             </div>
             </div>
+            {#if running}
+                    <LinearProgress indeterminate />
+            {/if}
             <div class="main__output__terminal">
                 <div bind:this={terminal}></div>
-                {#if runRes}
+                {#if running}
+                    Programm wird ausgeführt...
+                {:else if runRes}
                     {#if runRes.runtimeError}
                         Laufzeitumgebung abgestürtzt:
                         <br />
@@ -345,8 +355,6 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
                             <br />
                             <br />
                         {/if}
-
-                        Programm terminiert mit Ausstiegszahl {runRes.code}
                     {:else}
                         Kompilierung fehlgeschlagen:
                         <br />
