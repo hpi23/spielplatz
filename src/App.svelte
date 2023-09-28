@@ -334,7 +334,7 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
                 </div>
             </div>
             <div class="main__output__nav__right">
-            <img src="/assets/logo.svg" alt="Das Logo des HPI">
+            <img src="/assets/logo.png" alt="Das Logo des HPI">
             </div>
             </div>
             {#if running}
@@ -486,7 +486,7 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
                     img {
                     aspect-ratio: 1;
                     height: auto;
-                    max-height:85%;
+                    max-height: 100%;
                     }
                 }
 
