@@ -245,16 +245,16 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
             <p>
                 Der <a
                     class="highlight"
-                    href="https://github.com/hpi23/hpi-playground"
+                    href="https://github.com/hpi23/spielplatz"
                     target="_blank"
                     rel="noreferrer">HPI Spielplatz</a
                 >
                 ermöglicht es jedem, die wunderbare
-                <a class="highlight" href="https://sprache.hpi.churc" target="_blank" rel="noreferrer"
+                <a class="highlight" href="https://github.com/hpi23/sprache" target="_blank" rel="noreferrer"
                     >HPI Programmiersprache</a
                 > zu verwenden.
                 <br>
-                Hierbei ist es egal, welches Betriebsystem Sie verwenden, nur Apple haben wir nicht getestet, da das sowieso schei*e ist.
+                Hierbei ist es egal, welches Betriebsystem Sie verwenden, nur Apple haben wir nicht getestet, da das sowieso Dreck ist.
             </p>
 
             <p>
@@ -279,6 +279,7 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
 
             <p>
                 Disclaimer: Diese Sprache darf nicht mit dem HPI (Hasso Plattner Institut) in Verbindung gebracht werden, da ihr Name und Logo ganz zufällig gewählt wurden.
+                Zudem ist dieses Projekt ein Meme, weshalb jegliche Beleidigungen nicht erst genommen werden sollen.
             </p>
 
             <h4>Tastaturbindungen</h4>
