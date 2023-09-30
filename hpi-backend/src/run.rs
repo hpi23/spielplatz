@@ -1,6 +1,6 @@
 use std::{
     fmt::{self, Display, Formatter},
-    io::{Write, self},
+    io::{Write, self}, collections::HashMap,
 };
 
 use crate::print_diagnostics;
@@ -108,7 +108,7 @@ impl Display for WasmRuntimeErrorKind {
 struct Client {}
 
 impl HPIHttpClient for Client {
-    fn request(&self, method: String, url: &str, body: String) -> Result<(u16, String), String> {
+    fn request(&self, method: String, url: &str, body: String, headers: HashMap<String, String>) -> Result<(u16, String), String> {
         Err("HTTP Anfragen werden im Web momentan nicht unterstützt.".to_string())
     }
 }
