@@ -5,6 +5,7 @@ use std::{
 
 use crate::print_diagnostics;
 use hpi_analyzer::Diagnostic;
+use hpi_interpreter_tree::HPIHttpClient;
 use serde::Serialize;
 use wasm_bindgen::prelude::*;
 // use wasmer::{imports, Function, Instance, InstantiationError, Module, Store};
@@ -104,6 +105,14 @@ impl Display for WasmRuntimeErrorKind {
     }
 }
 
+struct Client {}
+
+impl HPIHttpClient for Client {
+    fn request(&self, method: String, url: &str, body: String) -> Result<(u16, String), String> {
+        Err("HTTP Anfragen werden im Web momentan nicht unterstützt.".to_string())
+    }
+}
+
 #[wasm_bindgen]
 pub fn run(code: &str, backend: String) -> String {
     console_error_panic_hook::set_once();
@@ -121,8 +130,9 @@ pub fn run(code: &str, backend: String) -> String {
         }
     };
 
+    let client = Client{};
     let res = match backend.into() {
-        Backend::Tree => match hpi_interpreter_tree::Interpreter::new(Console).run(program) {
+        Backend::Tree => match hpi_interpreter_tree::Interpreter::new(Console, client).run(program) {
             Ok(code) => RunResult::new_ok(code, &diagnostics),
             Err(err) => RunResult::new_error(err.into_owned(), &diagnostics),
         },
