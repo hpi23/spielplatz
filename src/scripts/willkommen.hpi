@@ -55,11 +55,11 @@ funk irgendwas(Zeichen n / Zahl x) ergibt Zahl {
     drucke(n);
 
     drucke("Vor einfügen" / Meine_Liste);
-    Meine_Liste.hinzufügen('Z');
+    Meine_Liste.Hinzufügen('Z');
     drucke("Nach einfügen" / Meine_Liste);
 
     drucke(Meine_Liste[0]);
-    Meine_Liste.aktualisieren(0 / '4');
+    Meine_Liste.Aktualisieren(0 / '4');
     drucke(Meine_Liste[0]);
 
     überweise x;

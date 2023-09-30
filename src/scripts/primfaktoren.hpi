@@ -26,7 +26,7 @@ funk Primfaktorzerlegung(Zahl Eingabe) ergibt Liste von Zahl {
   setze Liste von Zahl Faktoren auf [];
   solange Teiler <= Eingabe {
     falls Eingabe % Teiler == 0 {
-      Faktoren.hinzufügen(Teiler);
+      Faktoren.Hinzufügen(Teiler);
       ändere Eingabe auf Eingabe : Teiler;
     } sonst {
       ändere Teiler auf Teiler + 1;
