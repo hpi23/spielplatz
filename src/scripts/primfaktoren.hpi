@@ -1,4 +1,4 @@
-beantrage drucke von Drucker;
+beantrage Drucke von Drucker;
 
 funk Bewerbung() ergibt Zeichenkette {
   "Hi, ich bin recht gut in Mathe. Dennoch brauche ich dieses Programm"
@@ -18,7 +18,7 @@ funk Studium() ergibt Nichts {
 }
 
 funk Unnötiger_Wrapper(Zahl Eingabe) ergibt Nichts {
-  drucke(Eingabe / "->" / Primfaktorzerlegung(Eingabe));
+  Drucke(Eingabe / "->" / Primfaktorzerlegung(Eingabe));
 }
 
 funk Primfaktorzerlegung(Zahl Eingabe) ergibt Liste von Zahl {

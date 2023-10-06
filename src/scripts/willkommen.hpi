@@ -1,6 +1,6 @@
-beantrage geld von Hasso;
-beantrage drucke von Drucker;
-beantrage aufgeben von libSAP;
+beantrage Geld von Hasso;
+beantrage Drucke von Drucker;
+beantrage Aufgeben von libSAP;
 
 setze Zahl Meine_Zahl auf 42;
 setze Zeichenkette Meine_Zeichenkette auf "Das ist ein String";
@@ -11,56 +11,56 @@ setze Wahrheitswert Mein_Wahrheitswert auf ja;
 
 funk Bewerbung() ergibt Zeichenkette {
     setze Zeichenkette Bewerbung auf "Hallo, ich bin ... Ich möchte am HPI studieren!";
-    drucke(Bewerbung);
-    drucke(geld());
+    Drucke(Bewerbung);
+    Drucke(Geld());
     überweise Bewerbung;
 }
 
 funk Einschreibung(Zahl Matrikelnummer) ergibt Nichts {
     // Matrikelnummer = (Matrikelnummer + 1) - 2 * 3 : 4 % 5;
     ändere Matrikelnummer auf (Matrikelnummer + 1) - 2 * 3 : 4 % 5;
-    drucke("Erfolgreich eingeschrieben: Matrikelnummer:" / Matrikelnummer);
+    Drucke("Erfolgreich eingeschrieben: Matrikelnummer:" / Matrikelnummer);
 
     setze Fließkommazahl Zähler auf 3,145;
 
     solange Zähler < 10F {
-        drucke(Zähler);
+        Drucke(Zähler);
         Zähler += 1F;
     }
     ändere Zähler auf 2F; // Zähler = 2;
 
     falls (Matrikelnummer % 2) == 0 {
-        drucke("Matrikelnummer" / Matrikelnummer / "ist gerade.");
+        Drucke("Matrikelnummer" / Matrikelnummer / "ist gerade.");
     } sonst falls Matrikelnummer % 3 == 0 {
-        drucke("Matrikelnummer" / Matrikelnummer / "ist durch 3 teilbar.");
+        Drucke("Matrikelnummer" / Matrikelnummer / "ist durch 3 teilbar.");
     } sonst {
-        drucke("Matrikelnummer" / Matrikelnummer / "kann nichts.");
+        Drucke("Matrikelnummer" / Matrikelnummer / "kann nichts.");
     }
 
     setze Zahl _a auf 1;
     // TODO: coming soon!
     // setze Zeiger auf Zahl b = Referenz zu a; // Referenz zu
-    // drucke(Wert bei b);
+    // Drucke(Wert bei b);
     // b += 1;
 }
 
 funk Studium() ergibt Nichts {
-    drucke(Meine_Zahl / Meine_Zeichenkette / Mein_Zeichen / Meine_Fließkommazahl / Meine_Liste / Mein_Wahrheitswert);
+    Drucke(Meine_Zahl / Meine_Zeichenkette / Mein_Zeichen / Meine_Fließkommazahl / Meine_Liste / Mein_Wahrheitswert);
 
     irgendwas('c' / 2);
-    aufgeben(42);
+    Aufgeben(42);
 }
 
 funk irgendwas(Zeichen n / Zahl x) ergibt Zahl {
-    drucke(n);
+    Drucke(n);
 
-    drucke("Vor einfügen" / Meine_Liste);
+    Drucke("Vor einfügen" / Meine_Liste);
     Meine_Liste.Hinzufügen('Z');
-    drucke("Nach einfügen" / Meine_Liste);
+    Drucke("Nach einfügen" / Meine_Liste);
 
-    drucke(Meine_Liste[0]);
+    Drucke(Meine_Liste[0]);
     Meine_Liste.Aktualisieren(0 / '4');
-    drucke(Meine_Liste[0]);
+    Drucke(Meine_Liste[0]);
 
     überweise x;
 }

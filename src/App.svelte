@@ -3,7 +3,7 @@
     import Button, { Label } from '@smui/button'
     import Dialog, { Title, Content, Actions } from '@smui/dialog'
     import Select, { Option } from '@smui/select'
-  import LinearProgress from '@smui/linear-progress';
+    import LinearProgress from '@smui/linear-progress';
     import { onMount } from 'svelte'
 
     import Editor from './Editor.svelte'
@@ -27,6 +27,8 @@
         ApproxE: [approxE, 'Die Eulersche Zahl'],
         ApproxApery: [approxApery, 'Apéry Konstante'],
     }
+
+    export const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms))
 
     const LOGO = "<span class='red'>" + ("\
 ooooo   ooooo ooooooooo.   ooooo  <br>\
@@ -60,6 +62,70 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
     let resizer: HTMLDivElement | null = null
 
     let helpOpen = false
+
+    let playing = false
+    let lastPlayingDate = new Date();
+    let workers = 0
+    $: console.log(`workers ${workers}`)
+
+
+    let heavenSound: HTMLAudioElement = null
+
+    async function monitor() {
+        while (true) {
+            console.log(new Date().getTime() - lastPlayingDate.getTime())
+            if (((new Date().getTime() - lastPlayingDate.getTime())) > 500 && playing) {
+                playing = false;
+                console.log('stop')
+                heavenSound.pause();
+                for (let i = 1.0; i > 0; i = i-0.1) {
+                    document.getElementById('heavenSound').volume = i;
+                    await sleep(10)
+                }
+            }
+            await sleep(2000)
+        }
+    }
+
+    // document.addEventListener('keyup', e => {
+    //     if (workers == 0) {
+    //         workers++
+    //         setTimeout(() => {
+    //             console.log(new Date().getTime() - lastPlayingDate.getTime())
+    //             if (((new Date().getTime() - lastPlayingDate.getTime())) > 500 && playing) {
+    //                 playing = false;
+    //                 console.log('stop')
+    //                 document.getElementById('heavenSound').pause();
+    //             }
+    //             workers--
+    //         }, 500)
+    //     }
+    // })
+
+    async function keydown(e: Event) {
+        const lowerCaseAlphabet = "abcdefghijklmnopqrstuvwxyz";
+        const upperCaseAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        if (lowerCaseAlphabet.includes(e.key) || upperCaseAlphabet.includes(e.key)) {
+            if (!playing) {
+                console.log('start')
+                playing = true
+
+                document.getElementById('heavenSound').volume = 0;
+                document.getElementById('heavenSound').play();
+
+                for (let i = 0.0; i < 1; i = i+0.1) {
+                    document.getElementById('heavenSound').volume = i;
+                    await sleep(10)
+                }
+            } else {
+                console.log('updated')
+                lastPlayingDate = new Date()
+            }
+        }
+    }
+
+    document.addEventListener('keydown', e => { keydown(e) })
 
     function run() {
         running = true
@@ -160,6 +226,13 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
     }
 
     onMount(async () => {
+        heavenSound.addEventListener("ended", function(){
+            heavenSound.currentTime = 0;
+            heavenSound.play()
+        });
+
+        monitor()
+        console.log("hallo")
         code = await loadFromStorage()
         loadedInitially = true
 
@@ -234,9 +307,9 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
 
         resizer.addEventListener('mousedown', mouseDownHandler)
     })
-
-    $:console.log(running);
 </script>
+
+<audio bind:this={heavenSound} id="heavenSound" src="/assets/heaven.mp3"></audio>
 
 <main>
     <Dialog bind:open={helpOpen} aria-labelledby="help-title" aria-describedby="help-content">

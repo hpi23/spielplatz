@@ -1,7 +1,7 @@
 // Dieses Programm berechnet einige Nachkommastellen der Zahl PI.
 // Je höher die Anzahl der Iterationen, desto höher ist die Genauigkeit,
 // jedoch auch der Zeitaufwand.
-beantrage drucke von Drucker;
+beantrage Drucke von Drucker;
 
 setze Zahl ITERATIONEN auf 4000000;
 
@@ -26,5 +26,5 @@ funk Studium() ergibt Nichts {
   }
 
   setze Fließkommazahl Resultat auf (4F * s);
-  drucke("So Pi mal daumen gesagt: Pi ist" / Resultat);
+  Drucke("So Pi mal daumen gesagt: Pi ist" / Resultat);
 }

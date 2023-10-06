@@ -1,5 +1,5 @@
 // Dieses Programm berechnet einige Nachkommastellen der Apéry's Konstante.
-beantrage drucke von Drucker;
+beantrage Drucke von Drucker;
 
 funk Bewerbung() ergibt Zeichenkette {
   "Dies ist meine Bewerbung ans HPI."
@@ -19,5 +19,5 @@ funk Studium() ergibt Nichts {
     Ergebnis += (1F : (Zähler ** 3) als Fließkommazahl);
   }
 
-  drucke(Ergebnis);
+  Drucke(Ergebnis);
 }
