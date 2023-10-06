@@ -66,17 +66,15 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
     let playing = false
     let lastPlayingDate = new Date();
     let workers = 0
-    $: console.log(`workers ${workers}`)
 
 
     let heavenSound: HTMLAudioElement = null
 
     async function monitor() {
         while (true) {
-            console.log(new Date().getTime() - lastPlayingDate.getTime())
+            //console.log(new Date().getTime() - lastPlayingDate.getTime())
             if (((new Date().getTime() - lastPlayingDate.getTime())) > 500 && playing) {
                 playing = false;
-                console.log('stop')
                 heavenSound.pause();
                 for (let i = 1.0; i > 0; i = i-0.1) {
                     document.getElementById('heavenSound').volume = i;
@@ -108,7 +106,6 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
 
         if (lowerCaseAlphabet.includes(e.key) || upperCaseAlphabet.includes(e.key)) {
             if (!playing) {
-                console.log('start')
                 playing = true
 
                 document.getElementById('heavenSound').volume = 0;
@@ -119,7 +116,6 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
                     await sleep(10)
                 }
             } else {
-                console.log('updated')
                 lastPlayingDate = new Date()
             }
         }
