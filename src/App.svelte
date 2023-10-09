@@ -70,35 +70,22 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
 
     let heavenSound: HTMLAudioElement = null
 
+    const TYPING_SOUND_COOLDOWN  = 2500;
+
     async function monitor() {
         while (true) {
             //console.log(new Date().getTime() - lastPlayingDate.getTime())
-            if (((new Date().getTime() - lastPlayingDate.getTime())) > 500 && playing) {
+            if (((new Date().getTime() - lastPlayingDate.getTime())) > TYPING_SOUND_COOLDOWN && playing) {
                 playing = false;
                 heavenSound.pause();
                 for (let i = 1.0; i > 0; i = i-0.1) {
                     document.getElementById('heavenSound').volume = i;
-                    await sleep(10)
+                    await sleep(100)
                 }
             }
             await sleep(2000)
         }
     }
-
-    // document.addEventListener('keyup', e => {
-    //     if (workers == 0) {
-    //         workers++
-    //         setTimeout(() => {
-    //             console.log(new Date().getTime() - lastPlayingDate.getTime())
-    //             if (((new Date().getTime() - lastPlayingDate.getTime())) > 500 && playing) {
-    //                 playing = false;
-    //                 console.log('stop')
-    //                 document.getElementById('heavenSound').pause();
-    //             }
-    //             workers--
-    //         }, 500)
-    //     }
-    // })
 
     async function keydown(e: Event) {
         const lowerCaseAlphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -113,7 +100,7 @@ o888o   o888o o888o        o888o  <br><br>".replaceAll(" ", "&nbsp;"))
 
                 for (let i = 0.0; i < 1; i = i+0.1) {
                     document.getElementById('heavenSound').volume = i;
-                    await sleep(10)
+                    await sleep(100)
                 }
             } else {
                 lastPlayingDate = new Date()
